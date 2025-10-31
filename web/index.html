@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>효율적 투자 프론티어 대시보드</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="app.js" type="module" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <h1>효율적 투자 프론티어</h1>
+      <p>
+        삼성전자(005930.KS), Apple(AAPL), NVIDIA(NVDA)의 2023년 10월부터 2025년 10월까지의 일별 가격 데이터를 활용해
+        구성한 포트폴리오의 위험-수익 관계를 시각화했습니다. 효율적 프론티어는 동일한 변동성 수준에서 가장 높은 기대
+        수익을 제공하는 조합을 의미합니다.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="chart-title" class="card">
+      <div class="card__header">
+        <h2 id="chart-title">효율적 프론티어</h2>
+        <p class="card__subtitle">연환산 수익률 대비 연환산 변동성</p>
+      </div>
+      <div id="frontier-chart" class="chart"></div>
+      <p class="card__footnote">
+        점 하나는 세 종목을 서로 다른 비중으로 섞은 포트폴리오를 의미합니다. 초록색 선은 해당 기간 동안 얻을 수 있었던
+        효율적 조합을 나타냅니다.
+      </p>
+    </section>
+
+    <section aria-labelledby="stats-title" class="card">
+      <div class="card__header">
+        <h2 id="stats-title">자산별 요약 지표</h2>
+        <p class="card__subtitle">일간 평균 수익률 및 연환산 지표</p>
+      </div>
+      <div id="asset-summary" class="grid"></div>
+    </section>
+
+    <section aria-labelledby="insight-title" class="card">
+      <div class="card__header">
+        <h2 id="insight-title">프론티어 핵심 포인트</h2>
+        <p class="card__subtitle">최소 변동성과 최대 수익 포트폴리오 비교</p>
+      </div>
+      <dl id="frontier-insights" class="insights"></dl>
+      <p class="card__footnote">연환산 수익률과 변동성은 단순히 과거 데이터를 기반으로 계산되었습니다.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      데이터 출처: <code>temp.csv</code> | 분석 스크립트: <code>scripts/generate_efficient_frontier.py</code>
+    </p>
+  </footer>
+</body>
+</html>
